@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #1C2529;
+    --color-secondary: #A1D1B1;
+}
+
+body #app {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    background-color: var(--color-primary);
+}
