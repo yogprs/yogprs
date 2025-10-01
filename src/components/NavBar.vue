@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
 
 const isHamburgerOpen = ref<boolean>(false);
 const menuIcon = ref<string>();
@@ -24,22 +21,37 @@ watch(
   },
   { immediate: true },
 );
-
-const menuClick = (menu: string) => {
-  if (menu === 'home') {
-    router.push('/');
-  } else {
-    router.push('/about');
-  }
-};
 </script>
 <template>
-  <nav class="w-full fixed !z-[50] py-4 px-12">
+  <nav
+    class="w-full fixed !z-[50] py-5 px-12 transition-colors backdrop-blur-md bg-opacity-50"
+  >
     <div class="flex justify-between">
-      <span class="text-2xl text-black">Yogprs</span>
-      <div class="flex gap-4 text-black justify-center items-center">
-        <span @click="menuClick('home')">Home</span>
-        <span @click="menuClick('about')">About</span>
+      <a class="text-2xl text-black font-bold tracking-[.1rem]" href="/">
+        Yogprs
+      </a>
+      <div class="flex text-black justify-center items-center">
+        <a
+          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
+          href="#home"
+        >
+          Home
+        </a>
+        <a
+          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
+          href="#about"
+          >About</a
+        >
+        <a
+          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
+          href="#projects"
+          >Projects</a
+        >
+        <a
+          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
+          href="#contact"
+          >Contact</a
+        >
         <img :src="menuIcon" @click="hamburgerClick()" class="w-8" />
       </div>
     </div>

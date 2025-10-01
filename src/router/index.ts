@@ -8,6 +8,10 @@ const routes: Readonly<RouteRecordRaw[]> = [
     {
         path: "/about",
         component: () => import("@/views/About.vue"),
+    },
+    {
+        path: "/projects",
+        component: () => import("@/views/Projects.vue"),
     }
 ];
 
