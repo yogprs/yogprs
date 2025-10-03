@@ -1,4 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const buttonRoute = (path: string): void => {
+  if (!path) return;
+  router.push(`/${path}`);
+};
+</script>
 <template>
   <div class="text-black">
     <div
@@ -41,9 +50,7 @@
               <button
                 class="mr-3 rounded-2xl px-3 md:px-8 py-2 shadow-md transition duration-300 ease-in-out bg-transparent hover:bg-secondary border-black hover:border-secondary border-2 text-secondary hover:text-white box-border hover:cursor-pointer"
               >
-                <a target="_blank" rel="noopener noreferrer" download>
-                  Contact Me
-                </a>
+                <a href="/#contact"> Contact Me </a>
               </button>
             </div>
           </div>
@@ -86,13 +93,17 @@
         >
           About Me
         </span>
-        <span class="text-xl mt-4 tracking-wider leading-[1.7rem] mb-5">
-          A brief introduction about myself and my skills.
+        <span
+          class="max-w-[480px] text-xl mt-4 tracking-wider leading-[1.7rem] mb-5"
+        >
+          A brief introduction about myself and the technologies used in web
+          development.
         </span>
         <button
+          @click="buttonRoute('about')"
           class="mr-3 rounded-2xl px-3 md:px-8 py-2 shadow-md transition duration-300 ease-in-out bg-secondary hover:bg-transparent border-transparent hover:border-black border-2 text-white hover:text-secondary box-border hover:cursor-pointer"
         >
-          <a target="_blank" rel="noopener noreferrer" download> Learn More </a>
+          <a> Learn More </a>
         </button>
       </div>
     </div>

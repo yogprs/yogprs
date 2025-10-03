@@ -33,23 +33,23 @@ watch(
       <div class="flex text-black justify-center items-center">
         <a
           class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
-          href="#home"
+          href="/#home"
         >
           Home
         </a>
         <a
           class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
-          href="#about"
+          href="/#about"
           >About</a
         >
         <a
           class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
-          href="#projects"
+          href="/#projects"
           >Projects</a
         >
         <a
           class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
-          href="#contact"
+          href="/#contact"
           >Contact</a
         >
         <img :src="menuIcon" @click="hamburgerClick()" class="w-8" />
