@@ -94,7 +94,7 @@ const buttonRoute = (path: string): void => {
           About Me
         </span>
         <span
-          class="max-w-[480px] text-xl mt-4 tracking-wider leading-[1.7rem] mb-5"
+          class="max-w-[480px] text-xl mt-4 tracking-wider leading-[1.7rem] mb-5 text-justify"
         >
           A brief introduction about myself and the technologies used in web
           development.
@@ -133,15 +133,16 @@ const buttonRoute = (path: string): void => {
           My Projects
         </span>
         <span
-          class="w-full max-w-2xl text-xl mt-4 tracking-wider leading-[1.7rem] mb-5"
+          class="w-full max-w-2xl text-xl mt-4 tracking-wider leading-[1.7rem] mb-5 text-justify"
         >
           This is a list of projects i have completed and am currently working
           on.
         </span>
         <button
+          @click="buttonRoute('projects')"
           class="mr-3 rounded-2xl px-3 md:px-8 py-2 shadow-md transition duration-300 ease-in-out bg-secondary hover:bg-transparent border-transparent hover:border-black border-2 text-white hover:text-secondary box-border hover:cursor-pointer"
         >
-          <a target="_blank" rel="noopener noreferrer" download> Learn More </a>
+          <a> Learn More </a>
         </button>
       </div>
     </div>
@@ -157,27 +158,27 @@ const buttonRoute = (path: string): void => {
         >
           <img
             alt="yogprs"
-            class="object-cover absolute inset-0 box-border p-0 border-none m-auto block w-0 md:h-0 h-[300px] min-w-full max-w-full md:min-h-full md:max-h-full"
+            class="object-cover absolute md:inset-0 box-border p-0 border-none m-auto block w-0 md:h-0 h-[300px] min-w-full max-w-full md:min-h-full md:max-h-full"
             src="../assets/img/contact.jpg"
           />
         </div>
       </div>
       <div
-        class="z-10 w-full absolute md:w-auto md:right-[0%] top-[58%] md:top-1/3 col-span-2 flex flex-col justify-center items-center md:items-start text-start px-10 py-4 md:py-5"
+        class="z-10 w-full absolute md:w-auto md:right-[0%] top-[54%] md:top-1/3 col-span-2 flex flex-col justify-center items-center md:items-start text-start px-10 py-4 md:py-5"
       >
         <span
           class="bg-transparent bg-opacity-50 px-3 md:px-0 text-4xl md:text-6xl font-bold"
         >
-          Contact Me
+          Contact
         </span>
         <span
-          class="block w-full max-w-2xl text-xl mt-4 tracking-wider leading-[1.7rem] mb-5 break-words"
+          class="block w-full max-w-2xl text-xl mt-4 tracking-wider leading-[1.7rem] mb-5 break-words text-justify md:pr-8"
         >
           Feel free to contact me if you would like to a discuss a project or
           just want to chat.
         </span>
         <a
-          class="text-xl w-full max-w-2xl tracking-wider leading-[1.7rem] mb-5"
+          class="text-lg md:text-xl w-full max-w-2xl tracking-wider leading-[1.7rem] mb-5"
           href="mailto:yogaprasetya1124@gmail.com?subject=Hello&body=Hello Yoga Praseta,"
         >
           yogaprasetya1124@gmail.com

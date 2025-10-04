@@ -1,19 +1,11 @@
-<script setup lang="ts">
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-
-const aboutClick = () => {
-  router.push('/');
-};
-</script>
+<script setup lang="ts"></script>
 <template>
   <div class="text-black">
     <div
-      class="relative w-full h-screen flex flex-col justify-center z-[45] px-10 md:px-12 overflow-hidden"
+      class="relative w-full h-[1000px] md:h-screen flex flex-col md:justify-center z-[45] pt-12 md:pt-0 px-10 md:px-12 md:overflow-hidden"
     >
       <div
-        class="z-0 mb-48 md:mb-0 md:absolute top-1/4 md:left-[5%] md:-translate-y-16"
+        class="z-0 mb-12 md:mb-0 md:absolute top-1/4 md:left-[5%] md:-translate-y-16"
       >
         <div
           class="rounded-sm h-[400px] md:h-[500px] w-[80vw] md:w-[30vw] grayscale hover:grayscale-0 opacity-[1] transform-none"
@@ -26,7 +18,7 @@ const aboutClick = () => {
         </div>
       </div>
       <div
-        class="z-10 absolute w-auto max-w-[285px] md:max-w-max md:right-[8%] top-[60%] md:top-1/4 col-span-2 flex flex-col justify-center items-center md:items-start text-start md:px-10 py-4 md:py-5"
+        class="z-10 absolute w-auto max-w-[285px] md:max-w-max md:right-[8%] top-[40%] md:top-1/4 col-span-2 flex flex-col justify-center items-center md:items-start text-start md:px-10 py-4 md:py-5"
       >
         <span
           class="bg-transparent bg-opacity-50 md:px-0 text-4xl md:text-6xl font-bold"
@@ -45,8 +37,8 @@ const aboutClick = () => {
         </span>
       </div>
     </div>
-    <div class="container mx-auto py-14">
-      <div class="mt-12 space-y-18">
+    <div class="container mx-auto py-4 md:py-14">
+      <div class="mt-0 md:mt-12 space-y-18">
         <div
           class="backdrop-blur-lg bg-[#8bcea2]/30 border border-gray-300/30 rounded-2xl p-8"
         >
