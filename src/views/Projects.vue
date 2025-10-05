@@ -170,7 +170,7 @@
         >
           <img
             alt="elecbill"
-            src="../assets/img/projects/valnime/thumbnail.png"
+            src="../assets/img/projects/elecbill/thumbnail.png"
             class="absolute h-full w-full inset-0 object-cover text-transparent bg-slate-950 opacity-10 group-hover/eds:opacity-100 transition-all ease duration-500 rounded-xl"
           />
           <div class="absolute top-0 left-0 bg-gray-600 px-4 py-2">

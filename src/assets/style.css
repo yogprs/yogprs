@@ -81,3 +81,7 @@ body #app {
     /* background: #A1D1B1; */
     transform-origin: top;
 }
+
+*, ::backdrop, ::after, ::before{
+    box-sizing: border-box;
+}
