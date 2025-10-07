@@ -1,21 +1,30 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 type NavBar = {
   isHamburgerOpen: boolean;
 };
 
+const route = useRoute();
+const router = useRouter();
 const props = defineProps<NavBar>();
 const emit = defineEmits<{
   open: [open: boolean];
 }>();
 
-// const isHamburgerOpen = ref<boolean>(false);
 const menuIcon = ref<string>();
 
+const currentRoute = computed(() => {
+  return route?.path?.length;
+});
+
 const hamburgerClick = (): void => {
-  // isHamburgerOpen.value = !isHamburgerOpen.value;
   emit('open', !props?.isHamburgerOpen);
+};
+
+const buttonRoute = (path: string): void => {
+  router.push(`/${path}`);
 };
 
 watch(
@@ -35,7 +44,7 @@ watch(
   <nav
     class="w-full fixed !z-[50] py-5 px-12 transition-colors backdrop-blur-md bg-opacity-50"
   >
-    <div class="flex justify-between">
+    <div v-if="currentRoute <= 1" class="flex justify-between">
       <a
         :class="`text-2xl ${isHamburgerOpen ? 'text-white' : 'text-black'} font-bold tracking-[.1rem]`"
         href="/"
@@ -64,6 +73,44 @@ watch(
         <a
           class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
           href="/#contact"
+          >Contact</a
+        >
+      </div>
+      <img
+        :src="menuIcon"
+        @click="hamburgerClick()"
+        class="w-8 block md:hidden"
+      />
+    </div>
+    <div v-else class="flex justify-between">
+      <a
+        :class="`text-2xl ${isHamburgerOpen ? 'text-white' : 'text-black'} font-bold tracking-[.1rem]`"
+        href="/"
+      >
+        Yogprs
+      </a>
+      <div
+        :class="`hidden md:flex ${props?.isHamburgerOpen ? 'text-white' : 'text-black'} justify-center items-center`"
+      >
+        <a
+          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm cursor-pointer"
+          @click="buttonRoute('')"
+        >
+          Home
+        </a>
+        <a
+          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm cursor-pointer"
+          @click="buttonRoute('about')"
+          >About</a
+        >
+        <a
+          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm cursor-pointer"
+          @click="buttonRoute('projects')"
+          >Projects</a
+        >
+        <a
+          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm cursor-pointer"
+          @click="buttonRoute('#contact')"
           >Contact</a
         >
       </div>

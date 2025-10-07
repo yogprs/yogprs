@@ -2,7 +2,7 @@
 <template>
   <div class="text-black">
     <div
-      class="relative w-full h-[1000px] md:h-screen flex flex-col md:justify-center z-[45] pt-12 md:pt-0 px-10 md:px-12 md:overflow-hidden"
+      class="relative w-full h-[1000px] md:h-screen flex flex-col md:justify-center z-[40] md:z-[45] pt-12 md:pt-0 px-10 md:px-12 md:overflow-hidden"
     >
       <div
         class="z-0 mb-12 md:mb-0 md:absolute top-1/4 md:left-[5%] md:-translate-y-16"
