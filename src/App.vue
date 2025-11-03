@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue';
 import NavBar from './components/NavBar.vue';
 import { useRoute, useRouter } from 'vue-router';
+import Footer from './components/Footer.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -61,4 +62,5 @@ const buttonRoute = (path: string): void => {
   <div class="relative text-black">
     <router-view />
   </div>
+  <Footer v-if="currentRoute !== '/404'" />
 </template>
