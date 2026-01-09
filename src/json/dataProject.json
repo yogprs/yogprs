@@ -13,7 +13,7 @@
             "link": {
                 "project": "https://cuaca-wi.vercel.app",
                 "github": {
-                    "fe": "https://github.com/Fush1ren/CuacaWi"
+                    "fe": "https://github.com/yogprs/CuacaWi"
                 }
             }
         },
@@ -30,8 +30,8 @@
             "link": {
                 "project": "https://endang-stock-fe.vercel.app",
                 "github": {
-                    "fe": "https://github.com/Fush1ren/endang_stock_fe",
-                    "be": "https://github.com/Fush1ren/endang_stock_be"
+                    "fe": "https://github.com/yogprs/endang_stock_fe",
+                    "be": "https://github.com/yogprs/endang_stock_be"
                 }
             }
         },
@@ -43,12 +43,12 @@
                 "A website application listing anime information built using React.js with TypeScript as the main technology on the frontend. This application aims to present various information related to anime in an interactive and structured manner, such as lists of popular anime, anime details, genres, broadcast schedules, and anime searches by title.",
                 "The data in this application is obtained dynamically through the Jikan API, a public API that provides access to data from the MyAnimeList (MAL) website. With this API integration, users can obtain constantly updated information without the need for manual input."
             ],
-            "technology": "ReactJs, TypeScript, TailwindCSS, Material UI",
+            "technology": "ReactJs, TypeScript, TailwindCSS",
             "year": 2024,
             "link": {
                 "project": "https://valnime.vercel.app",
                 "github": {
-                    "fe": "https://github.com/Fush1ren/valnime"
+                    "fe": "https://github.com/yogprs/valnime"
                 }
             }
         },
@@ -64,7 +64,7 @@
             "link": {
                 "project": "https://elecbill.vercel.app",
                 "github": {
-                    "fe": "https://github.com/Fush1ren/elecbill"
+                    "fe": "https://github.com/yogprs/elecbill"
                 }
             }
         }
