@@ -7,6 +7,12 @@ const buttonRoute = (path: string): void => {
   if (!path) return;
   router.push(`/${path}`);
 };
+
+const downloadCV = (): void => {
+  const cv = import.meta.env.VITE_APP_CV_LINK;
+  if (!cv) return;
+  window.open(cv);
+};
 </script>
 <template>
   <div class="text-black">
@@ -43,9 +49,7 @@ const buttonRoute = (path: string): void => {
               <button
                 class="mr-3 rounded-2xl px-3 md:px-8 py-2 shadow-md transition duration-300 ease-in-out bg-secondary hover:bg-transparent border-transparent hover:border-black border-2 text-white hover:text-secondary box-border hover:cursor-pointer"
               >
-                <a target="_blank" rel="noopener noreferrer" download>
-                  Download CV
-                </a>
+                <a @click="downloadCV"> Download CV </a>
               </button>
               <button
                 class="mr-3 rounded-2xl px-3 md:px-8 py-2 shadow-md transition duration-300 ease-in-out bg-transparent hover:bg-secondary border-black hover:border-secondary border-2 text-secondary hover:text-white box-border hover:cursor-pointer"
@@ -213,7 +217,7 @@ const buttonRoute = (path: string): void => {
           </a>
           <a
             class="flex justify-center items-center bg-secondary hover:bg-gray-400 w-14 h-14 rounded-full transition-all ease-in-out duration-300 hover:cursor-pointer"
-            href="https://github.com/Fush1ren"
+            href="https://github.com/yogprs"
           >
             <img
               alt="github"
