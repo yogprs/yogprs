@@ -1,66 +1,89 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import NavBar from './components/NavBar.vue';
-import { useRoute, useRouter } from 'vue-router';
-import Footer from './components/Footer.vue';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
+import Footer from './components/footer.vue';
+import Icons from './components/icons.vue';
+import Navbar from './components/navbar.vue';
+import HeroSection from './components/heroSection.vue';
+import Aboutme from './components/aboutme.vue';
+import Skills from './components/skills.vue';
+import Projects from './components/projects.vue';
+import Contact from './components/contact.vue';
+import { useHead } from '@vueuse/head';
 
-const route = useRoute();
-const router = useRouter();
-const isHamburgerOpen = ref<boolean>(false);
-
-const currentRoute = computed((): string => {
-  return route?.path;
+useHead({
+  title: 'Yoga Prasetya - Junior Fullstack Developer',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'My portfolio projects built with Vue, Tailwind, GSAP & TypeScript',
+    },
+    { property: 'og:title', content: 'YOGPRS — Portfolio' },
+    {
+      property: 'og:description',
+      content: 'Explore my web development projects & skills.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'Yoga Prasetya, Portofolio, yogprs, Vue.js, TailwindCSS, tailwind, typescript, GSAP',
+    },
+    { property: 'og:image', content: 'https://yogprs.my.id/logo-yp.png' },
+    { property: 'og:url', content: 'https://yogprs.my.id' },
+    { property: 'og:type', content: 'website' },
+    {
+      name: 'author',
+      content: 'Yoga Prasetya',
+    },
+  ],
 });
 
-const setMenu = (con: boolean): void => {
-  isHamburgerOpen.value = con;
+const showScrollTop = ref<boolean>(false);
+
+const onScroll = () => {
+  // show button if scroll > 200px
+  showScrollTop.value = window.scrollY > 200;
 };
 
-const buttonRoute = (path: string): void => {
-  router.push(`/${path}`);
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 };
+
+onMounted(() => {
+  // set first condition
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll);
+});
 </script>
 
 <template>
-  <NavBar
-    v-if="currentRoute !== '/404'"
-    :is-hamburger-open="isHamburgerOpen"
-    @open="setMenu($event)"
-  />
   <div
-    :class="`${isHamburgerOpen ? 'block' : 'hidden'} fixed w-full h-screen z-[45] backdrop-blur-sm transition-all ease duration-700 overflow-hidden`"
+    class="w-full h-full text-white bg-background-light dark:bg-background-dark"
   >
-    <div
-      class="relative backdrop-blur-sm opacity-95 flex flex-col items-center space-x-8 min-h-[100vh] bg-secondary min-w[100vw]"
-    >
-      <div
-        v-if="currentRoute?.length <= 1"
-        class="flex flex-col items-center space-y-8 my-auto mx-0 z-50 text-white"
-      >
-        <h1 class="text-4xl font-bold">Menu</h1>
-        <a class="hover:cursor-pointer" href="/#home">Home</a>
-        <a class="hover:cursor-pointer" href="/#about">About</a>
-        <a class="hover:cursor-pointer" href="/#projects">Projects</a>
-        <a class="hover:cursor-pointer" href="/#contact">Contact</a>
-      </div>
-      <div
-        v-else
-        class="flex flex-col items-center space-y-8 my-auto mx-0 z-50 text-white"
-      >
-        <h1 class="text-4xl font-bold">Menu</h1>
-        <a class="hover:cursor-pointer" @click="buttonRoute('')">Home</a>
-        <a class="hover:cursor-pointer" @click="buttonRoute('about')">About</a>
-        <a class="hover:cursor-pointer" @click="buttonRoute('projects')"
-          >Projects</a
-        >
-        <a class="hover:cursor-pointer" @click="buttonRoute('#contact')"
-          >Contact</a
-        >
-      </div>
+    <navbar />
+    <div class="max-w-7xl mx-auto px-6 lg:pb-2 lg:px-10 overflow-x-hidden">
+      <HeroSection />
+      <Aboutme />
+      <Skills />
+      <Projects />
+      <Contact />
     </div>
+    <Footer />
   </div>
-  <div class="relative text-black">
-    <router-view />
-  </div>
-  <Footer v-if="currentRoute !== '/404'" />
+  <section class="hidden md:flex justify-center items-center">
+    <div
+      v-show="showScrollTop"
+      @click="scrollToTop"
+      class="p-2 fixed bottom-[5%] right-[1.5%] z-50 cursor-pointer bg-background-light dark:bg-primary text-black dark:text-white shadow-lg shadow-primary/40 ring-1 ring-primary/30 hover:bg-primary/60 transition-all duration-300 rounded-full"
+    >
+      <Icons icon="material-symbols:arrow-upward" class="text-xl" />
+    </div>
+  </section>
 </template>

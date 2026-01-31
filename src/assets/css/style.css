@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #135bec;
+    --color-background-light: #f6f6f8;
+    --color-background-dark: #101621;
+    /* --color-background-dark: #FFe221; */
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card:hover {
+  border: 1px solid color-mix(in srgb, var(--color-primary) 50%, transparent);
+}
+
+.timeline-track {
+  background: linear-gradient(
+    to bottom,
+    #135bec 0%,
+    #135bec 70%,
+    transparent 100%
+  );
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

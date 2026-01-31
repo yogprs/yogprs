@@ -1,0 +1,42 @@
+{
+    "data": [
+        {
+            "position": "Front-End Programmer Internship",
+            "corporation": "PT Qtera Mandiri",
+            "jobDesc": [
+                "Developed web applications front-end side with Vue.js, Vite & TypeScript",
+                "Collaborated with design teams to translate UI/UX design into functional web pages."
+            ],
+            "tech": [
+                {
+                    "name": "Vue.js",
+                    "icon": "Vue"
+                },
+                {
+                    "name": "Vite.js",
+                    "icon": "Vite"
+                },
+                {
+                    "name": "TypeScript",
+                    "icon": "TS"
+                },
+                {
+                    "name": "TailwindCSS",
+                    "icon": "Tailwind"
+                },
+                {
+                    "name": "Git",
+                    "icon": "Git"
+                },
+                {
+                    "name": "Figma",
+                    "icon": "Figma"
+                }
+            ],
+            "time": {
+                "start": "Sep 2024",
+                "end": "Mar 2025"
+            }
+        }
+    ]
+}

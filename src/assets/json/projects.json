@@ -1,0 +1,104 @@
+{
+    "data": [
+        {
+            "name": "CuacaWi",
+            "description": "Website to get information about weather conditions in in various cities around the world. using the OpenWeather API.",
+            "tech": ["Vue", "Vite", "TypeScript", "TailwindCSS"],
+            "year": 2025,
+            "detail": {
+                "type": "front-end",
+                "tech": {
+                    "front": ["Vue", "Vite", "TypeScript", "TailwindCSS"],
+                    "back": []
+                },
+                "github": [
+                    {
+                        "text": "Github",
+                        "link": "https://github.com/yogprs/CuacaWi"
+                    }
+                ]
+            },
+            "type": ["front"],
+            "current": false, 
+            "github": ["https://github.com/yogprs/CuacaWi"],
+            "link": "https://cuaca-wi.vercel.app",
+            "image": "/img/projects/cuacawi.png"
+        },
+        {
+            "name": "Endang Stock",
+            "description": "Website for managing inventory at Agen Sembako Mbak Endang, with real-time stock notification features.",
+            "tech": ["Vue", "Vite", "Express.js", "TypeScript", "PrimeVue", "TailwindCSS", "PrismaORM", "PostgreSQL", "Socket.IO"],
+            "year": 2025,
+            "detail": {
+                "type": "fullstack",
+                "tech": {
+                    "front": ["Vue", "Vite", "TypeScript", "PrimeVue", "TailwindCSS", "Socket.IO"],
+                    "back": ["Express.js", "TypeScript", "PrismaORM", "PostgreSQL", "Socket.IO"]
+                },
+                "github": [
+                    {
+                        "text": "FE Github",
+                        "link": "https://github.com/yogprs/endang_stock_fe"
+                    },
+                    {
+                        "text": "BE Github",
+                        "link": "https://github.com/yogprs/endang_stock_be"
+                    }
+                ]
+            },
+            "type": ["front", "back"],
+            "current": false, 
+            "github": ["https://github.com/yogprs/endang_stock_fe", "https://github.com/yogprs/endang_stock_be"],
+            "link": "https://endang-stock-fe.vercel.app",
+           "image": "/img/projects/endangstock.png"
+        },
+        {
+            "name": "Valnime",
+            "description": "Website for obtaining information about anime. This website can search for anime data and top-rated anime. The anime data used is from JikanApi.",
+            "tech": ["React.js", "TypeScript", "TailwindCSS"],
+            "year": 2024,
+            "detail": {
+                "type": "front-end",
+                "tech": {
+                    "front": ["React.js", "TypeScript", "TailwindCSS"],
+                    "back": []
+                },
+                "github": [
+                    {
+                        "text": "Github",
+                        "link": "https://valnime.vercel.app"
+                    }
+                ]
+            },
+            "type": ["front"],
+            "current": false, 
+            "github": ["https://github.com/yogprs/valnime"],
+            "link": "https://valnime.vercel.app",
+            "image": "/img/projects/valnime.png"
+        },
+        {
+            "name": "Elecbill",
+            "description": "Website for postpaid electricity payments.",
+            "tech": ["Next.js", "JavaScript", "TailwindCSS", "PostgreSQL"],
+            "year": 2024,
+            "detail": {
+                "type": "fullstack",
+                "tech": {
+                    "front": ["Next.js", "JavaScript", "TailwindCSS"],
+                    "back": ["Next.js", "JavaScript", "PostgreSQL"]
+                },
+                "github": [
+                    {
+                        "text": "Github",
+                        "link": "https://github.com/yogprs/elecbill"
+                    }
+                ]
+            },
+            "type": ["front", "back"],
+            "current": false, 
+            "github": ["https://github.com/yogprs/elecbill"],
+            "link": "https://elecbill.vercel.app",
+            "image": "/img/projects/elecbill.png"
+        }
+    ]
+}
