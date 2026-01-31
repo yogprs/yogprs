@@ -78,7 +78,7 @@ onMounted(() => {
     <div class="mt-16 flex justify-center">
       <button
         @click="setExpand"
-        class="group flex items-center gap-3 bg-white dark:bg-[#1a2233] border border-slate-200 dark:border-white/5 rounded-full px-8 py-4 font-bold text-sm transition-all hover:border-primary/50 hover:bg-primary/5 hover:cursor-pointer"
+        class="group flex items-center gap-3 bg-[#1a2233] border border-white/5 rounded-full px-8 py-4 font-bold text-sm transition-all hover:border-primary/50 hover:bg-primary/5 hover:cursor-pointer"
       >
         <span>{{ `View ${isExpand ? 'Less' : 'More'} Projects` }}</span>
         <Icons

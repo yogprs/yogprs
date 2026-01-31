@@ -49,7 +49,7 @@ const goRoute = (path: string) => {
 
 <template>
   <div
-    class="group h-full flex flex-col bg-white dark:bg-[#1a2233] rounded-xl overflow-hidden border border-slate-200 dark:border-white/5 transition-all hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1"
+    class="group h-full flex flex-col bg-[#1a2233] rounded-xl overflow-hidden border border-white/5 transition-all hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1"
   >
     <div class="relative aspect-video overflow-hidden">
       <div
@@ -73,7 +73,7 @@ const goRoute = (path: string) => {
         <span
           v-for="(tech, index) in data?.tech.slice(0, visibleCount)"
           :key="index"
-          class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded bg-slate-100 text-slate-600 dark:bg-white/10 dark:text-slate-300 first:bg-primary/10 first:text-primary first:dark:bg-primary/20 first:dark:text-primary"
+          class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded bg-white/10 text-slate-300 first:text-primary first:bg-primary/20"
         >
           {{ tech }}
         </span>
@@ -84,7 +84,7 @@ const goRoute = (path: string) => {
         >
           <template #default>
             <span
-              class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded bg-slate-200 text-slate-600 dark:bg-white/10 dark:text-slate-300 cursor-default"
+              class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded bg-white/10 text-slate-300 cursor-default"
             >
               +{{ hiddenTech.length }} more
             </span>
@@ -100,9 +100,7 @@ const goRoute = (path: string) => {
       >
         {{ data?.name }}
       </h3>
-      <p
-        class="text-slate-600 dark:text-[#92a4c9] text-sm leading-relaxed mb-6 flex-1"
-      >
+      <p class="text-[#92a4c9] text-sm leading-relaxed mb-6 flex-1">
         {{ data?.description }}
       </p>
       <div class="grid grid-cols-2 gap-3 mt-auto">
@@ -120,7 +118,7 @@ const goRoute = (path: string) => {
               openDialog = true;
             }
           "
-          class="flex items-center justify-center gap-2 rounded-lg h-10 px-3 bg-slate-100 dark:bg-[#232f48] text-slate-700 dark:text-white text-xs font-bold transition-all hover:bg-slate-200 dark:hover:bg-[#2c3b5a] hover:cursor-pointer"
+          class="flex items-center justify-center gap-2 rounded-lg h-10 px-3 bg-[#232f48] text-white text-xs font-bold transition-all hover:bg-[#2c3b5a] hover:cursor-pointer"
         >
           <Icons class="text-base" icon="material-symbols:code" />
           Source

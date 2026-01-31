@@ -78,6 +78,12 @@ import Icons from './icons.vue';
                 <span v-if="data?.expired">Expired {{ data?.expired }}</span>
               </p>
             </div>
+
+            <!-- <ImagePreview
+              v-model="showPreview"
+              src="https://instagram.fcgk22-1.fna.fbcdn.net/v/t39.30808-6/623772854_1324073226416807_2889791063899299394_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzgyMjE3MjgxNjIyMTg5NjQ3OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTA4MC5zZHIuQzMifQ%3D%3D&_nc_ohc=WzFj7tJqBnwQ7kNvwHH9oaE&_nc_oc=AdmzYzYteHS5MI5z8Y8Sf6gJAb_rSk6Bd_AmmlGuvPvAJSX-luljOGgvcBZG3IeaJmo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcgk22-1.fna&_nc_gid=CLeFuW6QUrbXF0OWLb4Ykw&oh=00_AfstXcKjwgaNYYdJAod5ctoVR-n9bJdymvnhFz0PMTjfrQ&oe=6983F307"
+              alt="Project preview"
+            /> -->
           </div>
         </div>
       </div>
