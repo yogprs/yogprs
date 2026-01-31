@@ -1,124 +1,118 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { onMounted, onUnmounted, ref } from 'vue';
 
-type NavBar = {
-  isHamburgerOpen: boolean;
+const activeSection = ref('home');
+
+const sections = ref(['home', 'about', 'projects', 'contact']);
+
+const lastId = ref<string>();
+
+const handleScroll = () => {
+  const scrollPos = window.scrollY + 120;
+
+  for (const id of sections.value) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+
+    const top = el.offsetTop;
+    const height = el.offsetHeight;
+
+    if (scrollPos >= top && scrollPos < top + height) {
+      if (lastId.value !== id) {
+        lastId.value = id;
+        activeSection.value = id;
+
+        if (id === 'home') {
+          history.replaceState(null, '', '/');
+        } else {
+          history.replaceState(null, '', `#${id}`);
+        }
+      }
+      break;
+    }
+  }
 };
 
-const route = useRoute();
-const router = useRouter();
-const props = defineProps<NavBar>();
-const emit = defineEmits<{
-  open: [open: boolean];
-}>();
+const navigateToCV = () => {
+  window.open(
+    'https://drive.google.com/file/d/1LzsXoksnnlB5mvoXHi7iQgbPgRnuteJb/view?usp=sharing',
+    '_blank',
+  );
+};
 
-const menuIcon = ref<string>();
+const scrollTo = (id: string) => {
+  const el = document.getElementById(id);
+  if (!el) return;
 
-const currentRoute = computed(() => {
-  return route?.path?.length;
+  activeSection.value = id;
+
+  if (id === 'home') {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  } else {
+    el.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
+
+  setTimeout(() => {
+    if (id === 'home') {
+      history.replaceState(null, '', '/');
+    } else {
+      history.replaceState(null, '', `#${id}`);
+    }
+  }, 400);
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
 });
 
-const hamburgerClick = (): void => {
-  emit('open', !props?.isHamburgerOpen);
-};
-
-const buttonRoute = (path: string): void => {
-  router.push(`/${path}`);
-};
-
-watch(
-  () => props?.isHamburgerOpen,
-  () => {
-    if (props?.isHamburgerOpen) {
-      menuIcon.value = `https://img.icons8.com/?size=100&id=46&format=png&color=ffffff`;
-    } else {
-      menuIcon.value =
-        'https://img.icons8.com/?size=100&id=3096&format=png&color=000000';
-    }
-  },
-  { immediate: true },
-);
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
+
 <template>
-  <nav
-    class="w-full fixed !z-[50] py-5 px-12 transition-colors backdrop-blur-md bg-opacity-50"
+  <header
+    class="sticky top-0 z-50 w-full border-b border-solid border-slate-200 dark:border-[#232f48] bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md"
   >
-    <div v-if="currentRoute <= 1" class="flex justify-between">
-      <a
-        :class="`text-2xl ${isHamburgerOpen ? 'text-white' : 'text-black'} font-bold tracking-[.1rem]`"
-        href="/"
-      >
-        Yogprs
-      </a>
-      <div
-        :class="`hidden md:flex ${props?.isHamburgerOpen ? 'text-white' : 'text-black'} justify-center items-center`"
-      >
-        <a
-          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
-          href="/#home"
-        >
-          Home
-        </a>
-        <a
-          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
-          href="/#about"
-          >About</a
-        >
-        <a
-          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
-          href="/#projects"
-          >Projects</a
-        >
-        <a
-          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm"
-          href="/#contact"
-          >Contact</a
-        >
+    <div
+      class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between"
+    >
+      <div class="flex items-center gap-3">
+        <div class="bg-primary p-1.5 rounded-lg text-white">
+          <img class="size-7.5" src="/logo-yp.png" />
+        </div>
+        <h2 class="text-xl font-black tracking-tight">YOGPRS</h2>
       </div>
-      <img
-        :src="menuIcon"
-        @click="hamburgerClick()"
-        class="w-8 block md:hidden"
-      />
-    </div>
-    <div v-else class="flex justify-between">
-      <a
-        :class="`text-2xl ${isHamburgerOpen ? 'text-white' : 'text-black'} font-bold tracking-[.1rem]`"
-        href="/"
-      >
-        Yogprs
-      </a>
-      <div
-        :class="`hidden md:flex ${props?.isHamburgerOpen ? 'text-white' : 'text-black'} justify-center items-center`"
-      >
-        <a
-          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm cursor-pointer"
-          @click="buttonRoute('')"
+
+      <nav class="hidden md:flex items-center gap-10">
+        <button
+          :key="id"
+          v-for="id in sections"
+          @click="scrollTo(id)"
+          :class="[
+            'capitalize transition-all font-medium cursor-pointer',
+            activeSection === id
+              ? 'text-blue-600 border-b-2 border-blue-600'
+              : 'hover:text-blue-500',
+          ]"
         >
-          Home
-        </a>
-        <a
-          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm cursor-pointer"
-          @click="buttonRoute('about')"
-          >About</a
+          {{ id }}
+        </button>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button
+          @click="navigateToCV"
+          class="flex items-center justify-center rounded-lg h-10 px-5 bg-primary hover:bg-primary/90 text-white text-sm font-bold transition-all active:scale-95 cursor-pointer"
         >
-        <a
-          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm cursor-pointer"
-          @click="buttonRoute('projects')"
-          >Projects</a
-        >
-        <a
-          class="text-lg font-medium hover:bg-secondary hover:text-white px-4 py-1 hover:rounded-sm cursor-pointer"
-          @click="buttonRoute('#contact')"
-          >Contact</a
-        >
+          <span>Download CV</span>
+        </button>
       </div>
-      <img
-        :src="menuIcon"
-        @click="hamburgerClick()"
-        class="w-8 block md:hidden"
-      />
     </div>
-  </nav>
+  </header>
 </template>

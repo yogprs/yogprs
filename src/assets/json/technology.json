@@ -1,0 +1,76 @@
+{
+    "data": [
+        {
+    "name": "HTML",
+    "icon": "html5"
+  },
+  {
+    "name": "CSS",
+    "icon": "css3"
+  },
+  {
+    "name": "TailwindCSS",
+    "icon": "tailwindcss"
+  },
+  {
+    "name": "JavaScript",
+    "icon": "javascript"
+  },
+  {
+    "name": "TypeScript",
+    "icon": "typescript"
+  },
+  {
+    "name": "NodeJS",
+    "icon": "nodejs"
+  },
+  {
+    "name": "Express",
+    "icon": "express"
+  },
+  {
+    "name": "Vite",
+    "icon": "vitejs"
+  },
+  {
+    "name": "Vue",
+    "icon": "vuejs"
+  },
+  {
+    "name": "React",
+    "icon": "react"
+  },
+  {
+    "name": "Next",
+    "icon": "nextjs"
+  },
+  {
+    "name": "Nuxt",
+    "icon": "nuxt"
+  },
+  {
+    "name": "Prisma",
+    "icon": "prisma"
+  },
+  {
+    "name": "MySQL",
+    "icon": "mysql"
+  },
+  {
+    "name": "PostgreSQL",
+    "icon": "postgresql"
+  },
+  {
+    "name": "MongoDB",
+    "icon": "mongodb"
+  },
+  {
+    "name": "Supabase",
+    "icon": "supabase"
+  },
+  {
+    "name": "Figma",
+    "icon": "figma"
+  }
+    ]
+}
