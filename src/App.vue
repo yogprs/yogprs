@@ -7,6 +7,8 @@ import Aboutme from './components/aboutme.vue';
 import Skills from './components/skills.vue';
 import Projects from './components/projects.vue';
 import Contact from './components/contact.vue';
+import Footer from './components/footer.vue';
+import Icons from './components/icons.vue';
 
 useHead({
   title: 'Yoga Prasetya - Junior Fullstack Developer',
