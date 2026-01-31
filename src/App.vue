@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue';
-import Footer from './components/footer.vue';
-import Icons from './components/icons.vue';
+import { useHead } from '@vueuse/head';
 import Navbar from './components/navbar.vue';
 import HeroSection from './components/heroSection.vue';
 import Aboutme from './components/aboutme.vue';
 import Skills from './components/skills.vue';
 import Projects from './components/projects.vue';
 import Contact from './components/contact.vue';
-import { useHead } from '@vueuse/head';
 
 useHead({
   title: 'Yoga Prasetya - Junior Fullstack Developer',
@@ -67,7 +65,7 @@ onBeforeUnmount(() => {
   <div
     class="w-full h-full text-white bg-background-light dark:bg-background-dark"
   >
-    <navbar />
+    <Navbar />
     <div class="max-w-7xl mx-auto px-6 lg:pb-2 lg:px-10 overflow-x-hidden">
       <HeroSection />
       <Aboutme />
