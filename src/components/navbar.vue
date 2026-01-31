@@ -5,33 +5,7 @@ const activeSection = ref('home');
 
 const sections = ref(['home', 'about', 'projects', 'contact']);
 
-const lastId = ref<string>();
-
-const handleScroll = () => {
-  const scrollPos = window.scrollY + 120;
-
-  for (const id of sections.value) {
-    const el = document.getElementById(id);
-    if (!el) continue;
-
-    const top = el.offsetTop;
-    const height = el.offsetHeight;
-
-    if (scrollPos >= top && scrollPos < top + height) {
-      if (lastId.value !== id) {
-        lastId.value = id;
-        activeSection.value = id;
-
-        if (id === 'home') {
-          history.replaceState(null, '', '/');
-        } else {
-          history.replaceState(null, '', `#${id}`);
-        }
-      }
-      break;
-    }
-  }
-};
+const observer = ref<IntersectionObserver | null>(null);
 
 const navigateToCV = () => {
   window.open(
@@ -44,41 +18,53 @@ const scrollTo = (id: string) => {
   const el = document.getElementById(id);
   if (!el) return;
 
-  activeSection.value = id;
+  el.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
 
   if (id === 'home') {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    history.replaceState(null, '', '/');
   } else {
-    el.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    history.replaceState(null, '', `#${id}`);
   }
-
-  setTimeout(() => {
-    if (id === 'home') {
-      history.replaceState(null, '', '/');
-    } else {
-      history.replaceState(null, '', `#${id}`);
-    }
-  }, 400);
 };
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+  observer.value = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeSection.value = entry.target.id;
+
+          if (entry.target.id === 'home') {
+            history.replaceState(null, '', '/');
+          } else {
+            history.replaceState(null, '', `#${entry.target.id}`);
+          }
+        }
+      });
+    },
+    {
+      rootMargin: '-40% 0px -55% 0px', // deteksi saat section berada di tengah layar
+      threshold: 0,
+    },
+  );
+
+  sections.value?.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.value?.observe(el);
+  });
 });
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
+  observer.value?.disconnect();
 });
 </script>
 
 <template>
   <header
-    class="sticky top-0 z-50 w-full border-b border-solid border-slate-200 dark:border-[#232f48] bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md"
+    class="sticky top-0 z-50 w-full border-b border-solid border-[#232f48] bg-background-dark/80 backdrop-blur-md"
   >
     <div
       class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between"
@@ -96,10 +82,10 @@ onUnmounted(() => {
           v-for="id in sections"
           @click="scrollTo(id)"
           :class="[
-            'capitalize transition-all font-medium cursor-pointer',
+            'capitalize transition-all duration-300 ease-out font-medium cursor-pointer',
             activeSection === id
-              ? 'text-blue-600 border-b-2 border-blue-600'
-              : 'hover:text-blue-500',
+              ? 'text-primary border-b-2 border-primary'
+              : 'hover:text-primary/80',
           ]"
         >
           {{ id }}

@@ -13,9 +13,7 @@ const setYear = () => {
 </script>
 
 <template>
-  <footer
-    class="border-t border-slate-200 dark:border-[#232f48] py-12 bg-white dark:bg-background-dark/50"
-  >
+  <footer class="border-t border-[#232f48] py-12 bg-background-dark/50">
     <div
       class="max-w-300 mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8"
     >

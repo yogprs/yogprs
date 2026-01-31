@@ -86,10 +86,10 @@ watch(
     </div>
     <div v-if="typeShow === 'slideshow'" class="relative mx-auto py-8">
       <div
-        class="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-background-light dark:from-background-dark to-transparent z-10 pointer-events-none"
+        class="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-background-dark to-transparent z-10 pointer-events-none"
       ></div>
       <div
-        class="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-background-light dark:from-background-dark to-transparent z-10 pointer-events-none"
+        class="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-background-dark to-transparent z-10 pointer-events-none"
       ></div>
       <div class="overflow-hidden">
         <div ref="track" class="flex w-max">

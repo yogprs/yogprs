@@ -38,24 +38,24 @@ watch(
         @click.self="close"
       >
         <div
-          class="bg-white dark:bg-[#1a2233] rounded-xl shadow-xl w-full max-w-lg p-6 animate-[scaleIn_0.25s_ease-out]"
+          class="bg-[#1a2233] rounded-xl shadow-xl w-full max-w-lg p-6 animate-[scaleIn_0.25s_ease-out]"
           :style="{ maxWidth: width || '32rem' }"
         >
           <!-- Header -->
           <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-bold text-slate-800 dark:text-white">
+            <h3 class="text-lg font-bold text-white">
               {{ title }}
             </h3>
             <button
               @click="close"
-              class="text-slate-500 hover:text-slate-800 dark:hover:text-white cursor-pointer"
+              class="text-slate-500 hover:text-white cursor-pointer"
             >
               ✕
             </button>
           </div>
 
           <!-- Body -->
-          <div class="text-sm text-slate-600 dark:text-slate-300">
+          <div class="text-sm text-slate-300">
             <slot />
           </div>
 

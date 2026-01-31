@@ -7,7 +7,7 @@ import yp from '@/assets/img/yp.png';
 <template>
   <section
     id="about"
-    class="animate-in fade-in slide-in-from-bottom-4 duration-700 py-14 md:py-30 border-t border-slate-200 dark:border-[#232f48]"
+    class="animate-in fade-in slide-in-from-bottom-4 duration-700 py-14 md:py-30 border-t border-[#232f48]"
   >
     <div class="flex flex-col md:flex-row items-center md:items-start gap-10">
       <div class="relative shrink-0">

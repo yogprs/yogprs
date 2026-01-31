@@ -39,7 +39,7 @@ const scrollTo = (id: string) => {
               Available for new projects
             </div>
             <h1
-              class="text-4xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white"
+              class="text-4xl lg:text-6xl font-black leading-[1.1] tracking-tight text-white"
             >
               Building Web <br />
               <span
@@ -48,9 +48,7 @@ const scrollTo = (id: string) => {
               >
               with Precision
             </h1>
-            <p
-              class="text-lg text-slate-600 dark:text-slate-400 max-w-135 leading-relaxed"
-            >
+            <p class="text-lg text-slate-400 max-w-135 leading-relaxed">
               Full-stack developer specializing in building scalable,
               high-performance web applications using modern technologies and
               clean architecture.
@@ -65,7 +63,7 @@ const scrollTo = (id: string) => {
             </a>
             <a
               @click="scrollTo('contact')"
-              class="flex min-w-40 items-center justify-center rounded-xl h-14 px-8 border-2 border-slate-200 dark:border-[#232f48] hover:bg-slate-100 dark:hover:bg-[#192233] text-slate-900 dark:text-white text-base font-bold transition-all cursor-pointer"
+              class="flex min-w-40 items-center justify-center rounded-xl h-14 px-8 border-2 border-[#232f48] hover:bg-[#192233] text-white text-base font-bold transition-all cursor-pointer"
             >
               Get in Touch
             </a>
@@ -82,7 +80,7 @@ const scrollTo = (id: string) => {
           <div
             @mouseenter="showQuote = true"
             @mouseleave="showQuote = false"
-            class="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-[#324467] neon-glow aspect-square bg-slate-100 dark:bg-[#192233]"
+            class="relative rounded-2xl overflow-hidden border border-[#324467] neon-glow aspect-square bg-[#192233]"
           >
             <img
               class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
