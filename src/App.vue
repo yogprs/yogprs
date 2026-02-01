@@ -64,9 +64,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div
-    class="w-full h-full text-white bg-background-light dark:bg-background-dark"
-  >
+  <div class="w-full h-full text-white bg-background-dark">
     <Navbar />
     <div class="max-w-7xl mx-auto px-6 lg:pb-2 lg:px-10 overflow-x-hidden">
       <HeroSection />
