@@ -1,104 +1,86 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, watch } from "vue";
+import { useRoute } from "vue-router";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { Icon } from "@iconify/vue";
 
-const activeSection = ref('home');
+gsap.registerPlugin(ScrollTrigger);
 
-const sections = ref(['home', 'about', 'projects', 'contact']);
+const route = useRoute();
 
-const observer = ref<IntersectionObserver | null>(null);
+let navbarTrigger: ScrollTrigger | null = null;
 
-const navigateToCV = () => {
-  window.open(
-    'https://drive.google.com/file/d/1LzsXoksnnlB5mvoXHi7iQgbPgRnuteJb/view?usp=sharing',
-    '_blank',
-  );
-};
+const initNavbarAnimation = () => {
+  navbarTrigger?.kill();
 
-const scrollTo = (id: string) => {
-  const el = document.getElementById(id);
-  if (!el) return;
+  // Halaman selain home
+  if (route.path !== "/") {
+    gsap.set(".navbar-title", {
+      opacity: 1,
+      y: 0,
+    });
 
-  el.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
+    return;
+  }
+
+  // Home
+  gsap.set(".navbar-title", {
+    opacity: 0,
+    y: 15,
   });
 
-  if (id === 'home') {
-    history.replaceState(null, '', '/');
-  } else {
-    history.replaceState(null, '', `#${id}`);
-  }
+  navbarTrigger = ScrollTrigger.create({
+    trigger: ".hero",
+    start: "20% top",
+    end: "50% top",
+    scrub: true,
+
+    onUpdate: (self) => {
+      gsap.set(".navbar-title", {
+        opacity: self.progress,
+        y: 15 - self.progress * 15,
+      });
+    },
+  });
 };
 
 onMounted(() => {
-  observer.value = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          activeSection.value = entry.target.id;
-
-          if (entry.target.id === 'home') {
-            history.replaceState(null, '', '/');
-          } else {
-            history.replaceState(null, '', `#${entry.target.id}`);
-          }
-        }
-      });
-    },
-    {
-      rootMargin: '-40% 0px -55% 0px', // deteksi saat section berada di tengah layar
-      threshold: 0,
-    },
-  );
-
-  sections.value?.forEach((id) => {
-    const el = document.getElementById(id);
-    if (el) observer.value?.observe(el);
-  });
+  initNavbarAnimation();
 });
 
+watch(
+  () => route.path,
+  async () => {
+    setTimeout(() => {
+      initNavbarAnimation();
+      ScrollTrigger.refresh();
+    }, 50);
+  },
+);
+
 onUnmounted(() => {
-  observer.value?.disconnect();
+  navbarTrigger?.kill();
 });
 </script>
 
 <template>
-  <header
-    class="sticky top-0 z-50 w-full border-b border-solid border-[#232f48] bg-background-dark/80 backdrop-blur-md"
-  >
-    <div
-      class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between"
-    >
-      <div class="flex items-center gap-3">
-        <div class="bg-primary p-1.5 rounded-lg text-white">
-          <img class="size-7.5" src="/logo-yp.png" />
-        </div>
-        <h2 class="text-xl font-black tracking-tight">YOGPRS</h2>
+  <nav class="navbar fixed top-0 left-0 right-0 z-50">
+    <div class="mx-2 flex items-center justify-between px-2 py-5">
+      <div class="navbar-title">
+        <RouterLink to="/" class="text-2xl font-bold text-secondary">
+          Yoga Prasetya
+        </RouterLink>
       </div>
 
-      <nav class="hidden md:flex items-center gap-10">
-        <button
-          :key="id"
-          v-for="id in sections"
-          @click="scrollTo(id)"
-          :class="[
-            'capitalize transition-all duration-300 ease-out font-medium cursor-pointer',
-            activeSection === id
-              ? 'text-primary border-b-2 border-primary'
-              : 'hover:text-primary/80',
-          ]"
-        >
-          {{ id }}
-        </button>
-      </nav>
-      <div class="flex items-center gap-4">
-        <button
-          @click="navigateToCV"
-          class="flex items-center justify-center rounded-lg h-10 px-5 bg-primary hover:bg-primary/90 text-white text-sm font-bold transition-all active:scale-95 cursor-pointer"
-        >
-          <span>Download CV</span>
-        </button>
-      </div>
+      <!-- <button
+        class="group text-secondary transition-all duration-300 cursor-pointer"
+      >
+        <Icon
+          icon="material-symbols:menu"
+          class="h-6 w-6 transition-transform duration-300 group-hover:rotate-90"
+        />
+      </button> -->
     </div>
-  </header>
+  </nav>
 </template>

@@ -1,88 +1,67 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import Icons from './icons.vue';
-import Tooltip from './tooltip.vue';
-
-const year = ref<number>();
-
-onMounted(() => setYear());
-
-const setYear = () => {
-  year.value = new Date().getFullYear();
-};
+import { contact } from "@/utils/information";
+import { Icon } from "@iconify/vue";
 </script>
 
 <template>
-  <footer class="border-t border-[#232f48] py-12 bg-background-dark/50">
+  <footer
+    class="relative overflow-hidden border-t border-outline-variant py-10"
+  >
     <div
-      class="max-w-300 mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8"
+      class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(79,55,138,0.08),transparent_70%)]"
+    />
+
+    <div
+      class="relative mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 text-center lg:flex-row lg:text-left"
     >
-      <div class="flex flex-col items-center md:items-start">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="font-bold">YOGPRS</span>
-        </div>
-        <p class="text-slate-500 text-sm">
-          © {{ year }} Built with care by Yoga Prasetya
+      <!-- Left -->
+      <div>
+        <h3 class="text-xl font-bold text-on-surface">Yoga Prasetya</h3>
+
+        <p class="mt-1 text-sm text-on-surface-variant">
+          Fullstack Developer • Building modern web experiences
         </p>
       </div>
-      <div class="flex gap-6">
-        <Tooltip position="top">
-          <template #default>
-            <a
-              class="text-slate-400 hover:text-primary transition-colors"
-              href="mailto:yogaprasetya1124@gmail.com"
-            >
-              <Icons class="text-2xl" icon="material-symbols:alternate-email" />
-            </a>
-          </template>
 
-          <template #content>
-            <span>Email</span>
-          </template>
-        </Tooltip>
-        <Tooltip position="top">
-          <template #default>
-            <a
-              class="text-slate-400 hover:text-primary transition-colors"
-              href="https://github.com/yogprs"
-            >
-              <Icons class="text-2xl" icon="mdi:github" />
-            </a>
-          </template>
+      <!-- Social -->
+      <div class="flex items-center gap-3 text-on-surface-variant">
+        <a
+          :href="contact.socials[0].url"
+          target="_blank"
+          class="rounded-xl border border-outline-variant p-3 transition-all duration-300 hover:border-primary hover:text-primary"
+        >
+          <Icon icon="mdi:github" class="text-xl" />
+        </a>
 
-          <template #content>
-            <span>Github</span>
-          </template>
-        </Tooltip>
-        <Tooltip position="top">
-          <template #default>
-            <a
-              class="text-slate-400 hover:text-primary transition-colors"
-              href="https://www.linkedin.com/in/yogaprasetyapl"
-            >
-              <Icons class="text-2xl" icon="mdi:linkedin" />
-            </a>
-          </template>
+        <a
+          :href="contact.socials[1].url"
+          target="_blank"
+          class="rounded-xl border border-outline-variant p-3 transition-all duration-300 hover:border-primary hover:text-primary"
+        >
+          <Icon icon="mdi:linkedin" class="text-xl" />
+        </a>
 
-          <template #content>
-            <span>LinkedIn</span>
-          </template>
-        </Tooltip>
-        <Tooltip position="top">
-          <template #default>
-            <a
-              class="text-slate-400 hover:text-primary transition-colors"
-              href="https://tako.id/yogprs"
-            >
-              <Icons class="text-2xl" icon="material-symbols:money-bag" />
-            </a>
-          </template>
-
-          <template #content>
-            <span>Support me</span>
-          </template>
-        </Tooltip>
+        <a
+          :href="`mailto:${contact.email}`"
+          class="rounded-xl border border-outline-variant p-3 transition-all duration-300 hover:border-primary hover:text-primary"
+        >
+          <Icon icon="mdi:email-outline" class="text-xl" />
+        </a>
       </div>
+    </div>
+
+    <!-- Bottom -->
+    <div
+      class="relative mx-auto mt-8 max-w-6xl border-t border-outline-variant px-6 pt-8 text-center"
+    >
+      <p class="text-sm text-on-surface-variant">
+        © {{ new Date().getFullYear() }} Yoga Prasetya. All rights reserved.
+      </p>
+
+      <p class="mt-2 text-xs text-on-surface-variant/70">
+        Designed & Developed with Vue, TypeScript, Tailwind CSS, GSAP, and
+        Lenis.
+      </p>
     </div>
   </footer>
 </template>
