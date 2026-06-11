@@ -1,73 +1,73 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { getImage } from "@/utils/image";
-import { Icon } from "@iconify/vue";
-import { RouterLink } from "vue-router";
-import { projects } from "@/utils/information";
+import { computed, onMounted, ref } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { getImage } from '@/utils/image';
+import { Icon } from '@iconify/vue';
+import { RouterLink } from 'vue-router';
+import { projects } from '@/utils/information';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projectFilter = ref("All");
+const projectFilter = ref('All');
 
 const projectCategories = [
-  "All",
-  "Web Development",
-  "Mobile Development",
-  "AI & Machine Learning",
-  "Others",
+  'All',
+  'Web Development',
+  'Mobile Development',
+  'AI & Machine Learning',
+  'Others',
 ];
 
 onMounted(() => {
   scrollToTop();
-  gsap.from(".project-card", {
+  gsap.from('.project-card', {
     opacity: 0,
     y: 100,
     stagger: 0.12,
     duration: 1,
-    ease: "power3.out",
+    ease: 'power3.out',
     scrollTrigger: {
-      trigger: ".projects-section",
-      start: "top 75%",
+      trigger: '.projects-section',
+      start: 'top 75%',
     },
   });
 
-  gsap.utils.toArray(".project-image").forEach((img: any) => {
+  gsap.utils.toArray('.project-image').forEach((img: any) => {
     gsap.from(img, {
       scale: 1.3,
       duration: 1.5,
-      ease: "power2.out",
+      ease: 'power2.out',
       scrollTrigger: {
         trigger: img,
-        start: "top 90%",
+        start: 'top 90%',
       },
     });
   });
 
-  gsap.utils.toArray(".reveal").forEach((el: any) => {
+  gsap.utils.toArray('.reveal').forEach((el: any) => {
     gsap.from(el, {
       opacity: 0,
       y: 100,
       duration: 1,
       scrollTrigger: {
         trigger: el,
-        start: "top 80%",
+        start: 'top 80%',
       },
     });
   });
 
-  gsap.from(".filter-item", {
+  gsap.from('.filter-item', {
     opacity: 0,
     x: -100,
     stagger: 0.25,
     duration: 1,
-    ease: "power3.out",
+    ease: 'power3.out',
   });
 });
 
 const filteredProjects = computed(() => {
-  if (projectFilter.value === "All") {
+  if (projectFilter.value === 'All') {
     return projects;
   }
 
@@ -79,7 +79,7 @@ const filteredProjects = computed(() => {
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
-    behavior: "smooth",
+    behavior: 'smooth',
   });
 };
 
@@ -145,10 +145,18 @@ setTimeout(() => {
           <!-- IMAGE -->
           <div class="relative aspect-video overflow-hidden">
             <img
+              v-if="project.image"
               :src="getImage('projects', `${project.image}.png`) || ''"
               :alt="project.name"
               class="project-image h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
+
+            <div v-else class="w-full h-full flex items-center justify-center">
+              <span
+                class="font-bold text-xl text-on-surface group-hover:text-primary"
+                >No Image</span
+              >
+            </div>
 
             <div
               class="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent"

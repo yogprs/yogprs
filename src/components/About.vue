@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import gsap from "gsap";
+import { onMounted, ref } from 'vue';
+import gsap from 'gsap';
 
-import { Icon } from "@iconify/vue";
-import { getImage } from "@/utils/image";
+import { Icon } from '@iconify/vue';
+import { getImage } from '@/utils/image';
 
 const showQuote = ref<boolean>(false);
 
 onMounted(() => {
-  gsap.utils.toArray(".reveal").forEach((el: any) => {
+  gsap.utils.toArray('.reveal').forEach((el: any) => {
     gsap.from(el, {
       opacity: 0,
       y: 100,
       duration: 1,
       scrollTrigger: {
         trigger: el,
-        start: "top 80%",
+        start: 'top 80%',
       },
     });
   });
@@ -33,9 +33,9 @@ onMounted(() => {
           <p class="max-w-3xl text-lg leading-relaxed text-on-surface-variant">
             I'm <span class="text-primary">Yoga Prasetya</span>, a Passionate
             <span class="text-primary"> Fullstack Developer </span> focused on
-            performance, accessibility and beautiful user experiences. Graduated
-            from Bina Sarana Informatika University with a degree in Information
-            Technology.
+            performance, accessibility and beautiful user experiences. I earned
+            a Bachelor's degree in Information Technology from Bina Sarana
+            Informatika University, completing my studies between 2021 and 2025.
           </p>
           <p class="max-w-3xl text-lg leading-relaxed text-on-surface-variant">
             I have experience in developing web applications on both the

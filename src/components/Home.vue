@@ -1,40 +1,40 @@
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed, onMounted } from 'vue';
 
-import gsap from "gsap";
-import { certifications, contact, projects } from "@/utils/information";
-import { getImage } from "@/utils/image";
-import { Icon } from "@iconify/vue";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import About from "./About.vue";
-import TechStack from "./TechStack.vue";
-import HeroSection from "./HeroSection.vue";
-import Experience from "./Experience.vue";
+import gsap from 'gsap';
+import { certifications, contact, projects } from '@/utils/information';
+import { getImage } from '@/utils/image';
+import { Icon } from '@iconify/vue';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import About from './About.vue';
+import TechStack from './TechStack.vue';
+import HeroSection from './HeroSection.vue';
+import Experience from './Experience.vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-  gsap.from(".project-card", {
+  gsap.from('.project-card', {
     opacity: 0,
     y: 100,
     stagger: 0.12,
     duration: 1,
-    ease: "power3.out",
+    ease: 'power3.out',
   });
 
-  gsap.utils.toArray(".project-image").forEach((img: any) => {
+  gsap.utils.toArray('.project-image').forEach((img: any) => {
     gsap.from(img, {
       scale: 1.3,
       duration: 1.5,
-      ease: "power2.out",
+      ease: 'power2.out',
       scrollTrigger: {
         trigger: img,
-        start: "top 90%",
+        start: 'top 90%',
       },
     });
   });
 
-  const certCards = gsap.utils.toArray(".cert-card");
+  const certCards = gsap.utils.toArray('.cert-card');
   gsap.fromTo(
     certCards,
     {
@@ -48,10 +48,10 @@ onMounted(() => {
       scale: 1,
       stagger: 0.15,
       duration: 0.5,
-      ease: "power4.out",
+      ease: 'power4.out',
       scrollTrigger: {
-        trigger: ".certification-section",
-        start: "top 75%",
+        trigger: '.certification-section',
+        start: 'top 75%',
         once: true,
       },
     },
@@ -74,26 +74,26 @@ onMounted(() => {
   //     },
   //   });
 
-  gsap.from(".contact-card", {
+  gsap.from('.contact-card', {
     opacity: 0,
     y: 80,
     stagger: 0.15,
     duration: 1,
-    ease: "power3.out",
+    ease: 'power3.out',
     scrollTrigger: {
-      trigger: ".contact-section",
-      start: "top 75%",
+      trigger: '.contact-section',
+      start: 'top 75%',
     },
   });
 
-  gsap.from(".contact-section h2", {
+  gsap.from('.contact-section h2', {
     opacity: 0,
     y: 60,
     duration: 1.2,
-    ease: "power4.out",
+    ease: 'power4.out',
     scrollTrigger: {
-      trigger: ".contact-section",
-      start: "top 80%",
+      trigger: '.contact-section',
+      start: 'top 80%',
     },
   });
 });
@@ -156,10 +156,20 @@ setTimeout(() => {
           >
             <div class="relative aspect-video overflow-hidden">
               <img
+                v-if="project.image"
                 :src="getImage('projects', `${project.image}.png`) || ''"
                 :alt="project.name"
                 class="project-image h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
+              <div
+                v-else
+                class="w-full h-full flex items-center justify-center"
+              >
+                <span
+                  class="font-bold text-xl text-on-surface group-hover:text-primary"
+                  >No Image</span
+                >
+              </div>
 
               <div
                 class="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent"
