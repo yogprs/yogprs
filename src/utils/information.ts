@@ -111,20 +111,20 @@ export const projects = [
     category: ['Web Development', 'AI & Machine Learning'],
   },
   {
-    name: 'Kotonoha',
+    name: 'Diagoldze',
     description:
-      'Kotonoha is a modern web-based anime tracker and draft manager that leverages the AniList API to let users seamlessly search, organize, and plan their personal anime watchlists.',
+      'Diagoldze is a modern web-based anime tracker application that utilizes the AniList API to allow users to easily search for anime data.',
     year: 2026,
-    stack: ['Nuxt', 'TailwindCSS', 'Prisma', 'MongoDB', 'GSAP', 'Redis'],
-    image: '',
+    stack: ['Nuxt', 'TailwindCSS', 'GSAP', 'Redis'],
+    image: 'diagoldze',
     link: {
       github: [
         {
           text: 'Github',
-          url: 'https://github.com/yogprs/kotonoha',
+          url: 'https://github.com/yogprs/Diagoldze',
         },
       ],
-      preview: '',
+      preview: 'https://diagoldze.vercel.app',
     },
     category: ['Web Development'],
   },
