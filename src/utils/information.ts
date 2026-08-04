@@ -28,7 +28,6 @@ export const techStacks = [
   { name: 'Nuxt', icon: 'devicon:nuxt' },
   { name: 'React', icon: 'devicon:react' },
   { name: 'Next.js', icon: 'devicon:nextjs' },
-  { name: 'Expo', icon: 'devicon:expo' },
   { name: 'Flask', icon: 'devicon:flask' },
 
   { name: 'TypeScript', icon: 'devicon:typescript' },
@@ -39,12 +38,11 @@ export const techStacks = [
   { name: 'GSAP', icon: 'simple-icons:gsap' },
 
   { name: 'Express.js', icon: 'devicon:express' },
-  { name: 'Elysia', icon: 'skill-icons:elysia-light' },
   { name: 'Node.js', icon: 'devicon:nodejs' },
-  { name: 'NestJS', icon: 'devicon:nestjs' },
   { name: 'Bun', icon: 'devicon:bun' },
   { name: 'Npm', icon: 'devicon:npm' },
   { name: 'Pnpm', icon: 'devicon:pnpm' },
+  { name: 'NestJS', icon: 'devicon:nestjs' },
 
   { name: 'PostgreSQL', icon: 'devicon:postgresql' },
   { name: 'MongoDB', icon: 'devicon:mongodb' },
@@ -61,7 +59,6 @@ export const techStacks = [
   { name: 'Docker', icon: 'devicon:docker' },
   { name: 'Figma', icon: 'devicon:figma' },
   { name: 'Postman', icon: 'devicon:postman' },
-  { name: 'Insomnia', icon: 'devicon:insomnia' },
   { name: 'Git', icon: 'devicon:git' },
   { name: 'Linux', icon: 'devicon:linux' },
 ];
@@ -73,7 +70,7 @@ export const projects = [
       'Real-time mobile chat application built with React Native and Expo. It features real-time messaging via WebSockets, OAuth authentication (Google/GitHub), and push notifications using Firebase Cloud Messaging (FCM).',
     year: 2026,
     stack: ['React Native', 'Expo', 'TypeScript', 'WebSocket'],
-    image: '',
+    image: 'atelier',
     link: {
       github: [
         {
@@ -244,7 +241,7 @@ export const certifications = [
   },
   {
     name: `IT Bootcamp "Software Development"`,
-    company: 'Bina Sarana Informatika University',
+    company: 'Bina Nusantara Informatika University',
     date: 'Jun 2023',
     description:
       'A certificate obtained after attending a bootcamp to develop software.',

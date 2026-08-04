@@ -16,7 +16,7 @@ const projectCategories = [
   'Web Development',
   'Mobile Development',
   'AI & Machine Learning',
-  'Others',
+  // "Others",
 ];
 
 onMounted(() => {
@@ -145,18 +145,10 @@ setTimeout(() => {
           <!-- IMAGE -->
           <div class="relative aspect-video overflow-hidden">
             <img
-              v-if="project.image"
               :src="getImage('projects', `${project.image}.png`) || ''"
               :alt="project.name"
               class="project-image h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
-
-            <div v-else class="w-full h-full flex items-center justify-center">
-              <span
-                class="font-bold text-xl text-on-surface group-hover:text-primary"
-                >No Image</span
-              >
-            </div>
 
             <div
               class="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent"

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
 
 @theme {
   --color-surface: #141218;
@@ -62,7 +62,7 @@
   --color-on-tertiary-fixed: #241a00;
   --color-on-tertiary-fixed-variant: #594400;
 
-  --font-inter: 'Inter', sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
 
 @view-transition {
@@ -95,7 +95,7 @@
 }
 
 /* Only necessary with horizontal scrolling */
-html[data-scroll-orientation='horizontal'] {
+html[data-scroll-orientation="horizontal"] {
   body {
     width: fit-content;
   }
@@ -125,28 +125,4 @@ body {
   50% {
     transform: translateY(-8px);
   }
-}
-
-/* Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #131315;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #6a5acd;
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #c8bfff;
-}
-
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #c8bfff #131315;
 }
